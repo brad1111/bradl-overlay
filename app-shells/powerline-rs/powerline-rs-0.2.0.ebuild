@@ -79,15 +79,31 @@ winapi-x86_64-pc-windows-gnu-0.4.0
 inherit cargo
 
 DESCRIPTION="powerline-shell rewritten in Rust. Inspired by powerline-go."
+# Double check the homepage as the cargo_metadata crate
+# does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/jD91mZM2/powerline-rs"
 SRC_URI="$(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
-LICENSE="Apache-2.0 Apache-2.0 WITH LLVM-exception BSD-2-Clause CC0-1.0 ISC MIT Unlicense"
+LICENSE="BSD-2-Clause ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+git +chrono +users"
 
 DEPEND=""
-RDEPEND=""
+RDEPEND="git? ( dev-libs/libgit2
+				dev-libs/libzip )"
+
+src_compile() {
+	cargo_src_compile $(usex git "--features git2" "") $(usex chrono "--features chrono" "") $(usex users "--features users" "")
+}
+
+src_install() {
+	cargo_src_install $(usex git "--features git2" "") $(usex chrono "--features chrono" "") $(usex users "--features users" "")
+}
+
+pkg_postinst() {
+	elog "In order for powerline-rs to do anything, you must change your prompt for your shell."
+	elog "Instructions can be found here: https://github.com/jD91mZM2/powerline-rs#add-it-to-your-shell"
+}
