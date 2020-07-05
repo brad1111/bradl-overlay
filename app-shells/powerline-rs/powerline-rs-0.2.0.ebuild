@@ -76,6 +76,8 @@ winapi-i686-pc-windows-gnu-0.4.0
 winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
+PATCHES=("${FILESDIR}/${P}-remove-flame-dependency.patch")
+
 inherit cargo
 
 DESCRIPTION="powerline-shell rewritten in Rust. Inspired by powerline-go."
