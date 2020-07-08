@@ -13,10 +13,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="virtual/linux-sources"
+DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
 MODULE_NAMES="hid-xpadneo(kernel/drivers/hid)"
+S="${WORKDIR}/src"
 
 
