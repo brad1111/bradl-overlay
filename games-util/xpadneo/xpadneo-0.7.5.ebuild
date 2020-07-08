@@ -18,6 +18,6 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 MODULE_NAMES="hid-xpadneo(kernel/drivers/hid)"
-S="${WORKDIR}/${P}/src"
+S="${WORKDIR}/${P}/hid-xpadneo"
 
 
