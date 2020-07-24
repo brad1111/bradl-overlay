@@ -6,10 +6,10 @@ inherit meson
 
 DESCRIPTION="Materia is a Material Design theme for GNOME/GTK based desktop environments."
 HOMEPAGE="https://github.com/nana-4/materia-theme"
-SRC_URI="https://github.com/nana-4/materia-theme/archive/v${PV}.tar.gz"
+SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+KEYWORDS="**amd64 **arm64 **ppc **ppc64 **x86"
 IUSE="appindicator gnome gtk2 gtk3 xfce cinnamon"
 REQUIRED_USE="
 	|| ( appindicator gnome gtk2 gtk3 xfce cinnamon )
