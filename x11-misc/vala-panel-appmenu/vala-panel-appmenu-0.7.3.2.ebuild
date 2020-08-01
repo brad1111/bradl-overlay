@@ -78,12 +78,14 @@ pkg_postinst() {
 	elog
 
 	if use xfce; then
-		elog "type the following lines into yor console:"
+		elog "type the following lines into your console:"
 		elog "  xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true"
 		elog "  xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true"
+		elog "instead of editing GTK settings you can just run:"
+		elog "  xfconf-query -c xsettings -p /Gtk/Modules -n -t string -s \"appmenu-gtk-module\""
 	fi
 	if use mate; then
-		elog "type the following lines into yor console:"
+		elog "type the following lines into your console:"
 		elog "  gsettings set org.mate.interface gtk-shell-shows-app-menu true"
 		elog "  gsettings set org.mate.interface gtk-shell-shows-menubar true"
 	fi
