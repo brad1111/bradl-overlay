@@ -7,11 +7,14 @@ EAPI=6
 
 VALA_MIN_API_VERSION=0.24
 
-inherit vala cmake-utils eutils gnome2-utils
+inherit git-r3 vala cmake-utils eutils gnome2-utils
 
 DESCRIPTION="Global Menu for Vala Panel (and xfce4-panel and mate-panel)"
 HOMEPAGE="https://gitlab.com/vala-panel-project/vala-panel-appmenu"
-SRC_URI="${HOMEPAGE}/-/archive/${PV}/${P}.tar.gz"
+SRC_URI=""
+
+EGIT_REPO_URI="${HOMEPAGE}.git"
+EGIT_COMMIT="${PV}"
 
 LICENSE="LGPL-3"
 SLOT="0"
