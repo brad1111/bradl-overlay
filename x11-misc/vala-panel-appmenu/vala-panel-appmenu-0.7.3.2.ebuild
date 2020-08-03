@@ -39,6 +39,8 @@ RDEPEND="
 "
 
 src_prepare() {
+	local valac
+
 	if use !wayland; then
 		sed -i 's/WAYLAND//' CMakeLists.txt
 		sed -i 's/WAYLAND//' subprojects/appmenu-gtk-module/CMakeLists.txt
@@ -47,6 +49,9 @@ src_prepare() {
 
 	vala_src_prepare
 	cmake-utils_src_prepare
+
+	valac=$(basename $VALAC)
+	sed -i 's/valac-0.38/'$valac'/' cmake/Vala/FindVala.cmake
 }
 
 src_configure() {
