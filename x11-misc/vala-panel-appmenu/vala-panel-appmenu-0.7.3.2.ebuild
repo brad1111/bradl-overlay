@@ -61,7 +61,7 @@ src_configure() {
 		-DENABLE_MATE=$(usex mate ON OFF)
 		-DENABLE_JAYATANA=$(usex jayatana ON OFF)
 		-DENABLE_APPMENU_GTK_MODULE=ON
-#		-DGSETTINGS_COMPILE=OFF
+		-DGSETTINGS_COMPILE=OFF
 	)
 	cmake-utils_src_configure
 }
