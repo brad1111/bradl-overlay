@@ -20,4 +20,4 @@ BDEPEND=""
 MODULE_NAMES="hid-xpadneo(kernel/drivers/hid)"
 S="${WORKDIR}/${P}/hid-xpadneo"
 
-
+BUILD_TARGETS="clean modules"
