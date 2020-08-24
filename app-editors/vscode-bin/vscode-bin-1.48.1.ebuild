@@ -47,7 +47,8 @@ src_install(){
 	doins -r *
 	dosym "../../opt/${PN}/bin/code" "/usr/bin/${PN}"
 	make_desktop_entry "${PN}" "Visual Studio Code" "code.png" "Development;IDE"
-	doicon "${S}/resources/app/resources/linux/code.png"
+    cp ${S}/resources/app/resources/linux/code.png ${S}/vscode-bin.png
+	doicon "${S}/vscode-bin.png"
 	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/bin/code"
 	fperms +x "/opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg"

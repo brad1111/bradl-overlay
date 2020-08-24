@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit eutils pax-utils
+inherit eutils pax-utils desktop
 
 DESCRIPTION="Free/Libre Open Source Software Binaries of VSCode"
 HOMEPAGE="https://vscodium.com/"
@@ -43,8 +43,9 @@ src_install(){
 	doins -r *
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/${PN}"
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/codium"
-	make_desktop_entry "${PN}" "Visual Studio Code" "${PN}" "Development;IDE"
-	doicon "${FILESDIR}/${PN}.png"
+	make_desktop_entry "${PN}" "VSCodium" "code.png" "Development;IDE"
+	cp ${S}/resources/app/resources/linux/code.png ${S}/codium.png
+	doicon "${S}/codium.png"
 	fperms +x "/opt/${PN}/codium"
 	fperms +x "/opt/${PN}/bin/codium"
 	fperms +x "/opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg"
