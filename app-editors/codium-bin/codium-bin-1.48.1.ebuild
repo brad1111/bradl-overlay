@@ -43,7 +43,7 @@ src_install(){
 	doins -r *
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/${PN}"
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/codium"
-	make_desktop_entry "${PN}" "VSCodium" "/usr/share/pixmaps/code.png" "Development;IDE"
+	make_desktop_entry "${PN}" "VSCodium" "/usr/share/pixmaps/codium.png" "Development;IDE"
 	cp ${S}/resources/app/resources/linux/code.png ${S}/codium.png
 	doicon "${S}/codium.png"
 	fperms +x "/opt/${PN}/codium"
