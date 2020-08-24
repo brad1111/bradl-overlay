@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit eutils pax-utils
+inherit eutils pax-utils desktop
 
 DESCRIPTION="Microsoft Visual Studio Code binaries"
 HOMEPAGE="https://code.visualstudio.com"
@@ -47,7 +47,7 @@ src_install(){
 	doins -r *
 	dosym "../../opt/${PN}/bin/code" "/usr/bin/${PN}"
 	make_desktop_entry "${PN}" "Visual Studio Code" "${PN}" "Development;IDE"
-	doicon "${FILESDIR}/${PN}.png"
+	doicon "${S}/resources/app/resources/linux/code.png"
 	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/bin/code"
 	fperms +x "/opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg"
