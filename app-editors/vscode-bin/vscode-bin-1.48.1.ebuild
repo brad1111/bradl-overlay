@@ -46,7 +46,7 @@ src_install(){
 	insinto "/opt/${PN}"
 	doins -r *
 	dosym "../../opt/${PN}/bin/code" "/usr/bin/${PN}"
-	make_desktop_entry "${PN}" "Visual Studio Code" "${PN}" "Development;IDE"
+	make_desktop_entry "${PN}" "Visual Studio Code" "code.png" "Development;IDE"
 	doicon "${S}/resources/app/resources/linux/code.png"
 	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/bin/code"
