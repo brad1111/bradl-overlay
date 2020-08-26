@@ -1,0 +1,64 @@
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+# Modified from https://github.com/wolviecb/overlay/
+
+#Dont copy this one it has a manual edit for tag
+EAPI=7
+
+inherit eutils pax-utils desktop
+
+DESCRIPTION="Free/Libre Open Source Software Binaries of VSCode"
+HOMEPAGE="https://vscodium.com/"
+SRC_URI="
+	amd64? ( https://github.com/VSCodium/vscodium/releases/download/1.48.1/VSCodium-linux-x64-${PV}.tar.gz -> ${P}-x64.tar.gz )"
+RESTRICT="mirror strip"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="libsecret"
+
+DEPEND="
+	>=media-libs/libpng-1.2.46:0
+	>=x11-libs/gtk+-3.0:3
+	x11-libs/cairo
+	x11-libs/libXtst
+"
+
+RDEPEND="
+	${DEPEND}
+	>=net-print/cups-2.0.0
+	x11-libs/libnotify
+	x11-libs/libXScrnSaver
+	dev-libs/nss
+	libsecret? ( app-crypt/libsecret[crypt] )
+"
+
+QA_PRESTRIPPED="opt/${PN}/code"
+
+S="${WORKDIR}"
+
+src_install(){
+	pax-mark m code
+	insinto "/opt/${PN}"
+	doins -r *
+	dosym "../../opt/${PN}/bin/codium" "/usr/bin/${PN}"
+	dosym "../../opt/${PN}/bin/codium" "/usr/bin/codium"
+	make_desktop_entry "${PN}" "VSCodium" "/usr/share/pixmaps/codium.png" "Development;IDE"
+	cp ${S}/resources/app/resources/linux/code.png ${S}/codium.png
+	doicon "${S}/codium.png"
+	fperms +x "/opt/${PN}/codium"
+	fperms +x "/opt/${PN}/bin/codium"
+	fperms +x "/opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg"
+	fperms +x "/opt/${PN}/resources/app/extensions/git/dist/askpass.sh"
+	insinto "/usr/share/licenses/${PN}"
+	for i in resources/app/LICEN*; do
+		newins "${i}" "$(basename ${i})"
+	done
+}
+
+pkg_postinst(){
+	elog "You may install some additional utils, so check them in:"
+	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
+}
+
