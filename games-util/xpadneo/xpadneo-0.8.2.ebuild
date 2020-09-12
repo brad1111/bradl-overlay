@@ -23,7 +23,7 @@ MODULE_NAMES="hid-xpadneo(kernel/drivers/hid:${S}:${S}/src)"
 BUILD_TARGETS="modules"
 
 src_install() {
-    linux-mod_src_install
+	linux-mod_src_install
 
 	if use udev; then
 		insinto /lib/udev/rules.d

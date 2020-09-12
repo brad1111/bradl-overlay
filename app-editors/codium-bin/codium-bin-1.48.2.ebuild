@@ -1,8 +1,9 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# Modified from https://github.com/wolviecb/overlay/
 
-#Dont copy this one it has a manual edit for tag
+# Modified from https://github.com/wolviecb/overlay/
+# Dont copy this ebuild one it has a manual edit for tag
+
 EAPI=7
 
 inherit eutils pax-utils desktop
@@ -45,7 +46,7 @@ src_install(){
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/${PN}"
 	dosym "../../opt/${PN}/bin/codium" "/usr/bin/codium"
 	make_desktop_entry "${PN}" "VSCodium" "/usr/share/pixmaps/codium.png" "Development;IDE"
-	cp ${S}/resources/app/resources/linux/code.png ${S}/codium.png
+	cp "${S}/resources/app/resources/linux/code.png" "${S}/codium.png"
 	doicon "${S}/codium.png"
 	fperms +x "/opt/${PN}/codium"
 	fperms +x "/opt/${PN}/bin/codium"
@@ -61,4 +62,3 @@ pkg_postinst(){
 	elog "You may install some additional utils, so check them in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
 }
-

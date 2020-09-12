@@ -1,6 +1,6 @@
-# Copyright 1999-2020 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+
 # Based on ebuild from https://github.com/shimataro/portage-overlay/
 
 EAPI=7
@@ -63,4 +63,3 @@ src_configure() {
 	)
 	econf "${myeconfargs[@]}" "$@"
 }
-

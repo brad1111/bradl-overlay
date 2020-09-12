@@ -1,5 +1,6 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 # Modified from https://github.com/wolviecb/overlay/
 
 EAPI=7
@@ -47,7 +48,7 @@ src_install(){
 	doins -r *
 	dosym "../../opt/${PN}/bin/code" "/usr/bin/${PN}"
 	make_desktop_entry "${PN}" "Visual Studio Code" "/usr/share/pixmaps/vscode-bin.png" "Development;IDE"
-    cp ${S}/resources/app/resources/linux/code.png ${S}/vscode-bin.png
+	cp "${S}/resources/app/resources/linux/code.png" "${S}/vscode-bin.png"
 	doicon "${S}/vscode-bin.png"
 	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/bin/code"
@@ -66,4 +67,3 @@ pkg_postinst(){
 	elog "You may install some additional utils, so check them in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
 }
-

@@ -88,7 +88,7 @@ SRC_URI="$(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
-LICENSE="BSD-2-Clause ISC MIT"
+LICENSE="BSD-2 ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+git +chrono +users"

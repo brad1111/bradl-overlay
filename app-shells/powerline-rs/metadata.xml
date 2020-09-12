@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mail.thebradad1111@gmail.com</email>
+		<name>Bradley Eaton</name>
+	</maintainer>
+	<use>
+		<flag name="chrono">Enables time support for --shell bare</flag>
+		<flag name="git">Enables git support</flag>
+		<flag name="users">Enables username support for --shell bare</flag>
+	</use>
+</pkgmetadata>

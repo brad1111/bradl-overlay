@@ -1,30 +1,27 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 #Modified from https://github.com/shimataro/portage-overlay/
 
-EAPI=6
+EAPI=7
 
 VALA_MIN_API_VERSION=0.24
 
-inherit git-r3 vala cmake-utils eutils gnome2-utils
+inherit vala meson eutils gnome2-utils
 
 DESCRIPTION="Global Menu for Vala Panel (and xfce4-panel and mate-panel)"
 HOMEPAGE="https://gitlab.com/vala-panel-project/vala-panel-appmenu"
-SRC_URI=""
-
-EGIT_REPO_URI="${HOMEPAGE}.git"
-EGIT_COMMIT="${PV}"
+SRC_URI="${HOMEPAGE}/-/archive/${PV}/vala-panel-appmenu-${PV}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="**amd64 **x86"
-IUSE="-vala-panel xfce mate +wnck jayatana -wayland"
-REQUIRED_USE="|| ( vala-panel xfce mate )"
+KEYWORDS="~amd64 ~x86"
+IUSE="xfce mate +wnck jayatana"
+REQUIRED_USE="|| ( xfce mate )"
 
 DEPEND="
 	$(vala_depend)
-	>=x11-libs/gtk+-3.22.0:3[wayland?]
+	>=x11-libs/gtk+-3.22.0:3
 	sys-devel/gettext
 "
 RDEPEND="
@@ -33,32 +30,24 @@ RDEPEND="
 	x11-libs/gdk-pixbuf
 	>=x11-libs/bamf-0.5.0
 	wnck? ( >=x11-libs/libwnck-3.4.7 )
-	vala-panel? ( x11-misc/vala-panel )
 	xfce? ( >=xfce-base/xfce4-panel-4.11.2 )
 	mate? ( >=mate-base/mate-panel-1.20.0 )
 "
 
-src_prepare() {
-	if use !wayland; then
-		sed -i 's/WAYLAND//' CMakeLists.txt
-		sed -i 's/WAYLAND//' subprojects/appmenu-gtk-module/CMakeLists.txt
-		sed -i 's/\${WAYLAND_INCLUDE}//'  subprojects/appmenu-gtk-module/src/CMakeLists.txt
-	fi
-
+src_prepare(){
+	default
 	vala_src_prepare
-	cmake-utils_src_prepare
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DENABLE_XFCE=$(usex xfce ON OFF)
-		-DENABLE_VALAPANEL=$(usex vala-panel ON OFF)
-		-DENABLE_MATE=$(usex mate ON OFF)
-		-DENABLE_JAYATANA=$(usex jayatana ON OFF)
-		-DENABLE_APPMENU_GTK_MODULE=ON
-		-DGSETTINGS_COMPILE=OFF
+	local emesonargs=(
+		-Dxfce=$(usex xfce enabled disabled)
+		-Dmate=$(usex mate enabled disabled)
+		-Djayatana=$(usex jayatana enabled disabled)
+		-Dappmenu_gtk_module=enabled
+		-Dwnck=$(usex wnck enabled disabled)
 	)
-	cmake-utils_src_configure
+	meson_src_configure
 }
 
 pkg_preinst() {
@@ -93,4 +82,3 @@ pkg_postrm() {
 	gnome2_gconf_uninstall
 	gnome2_schemas_update
 }
-
