@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mail.thebradad1111@gmail.com</email>
+		<name>Bradley Eaton</name>
+	</maintainer>
+	<use>
+		<flag name="wnck">Enables wnck-related plugins, like taskbar and pager</flag>
+		<flag name="drawing">Enables drawing plugins, like CPU Graph plot</flag>
+	</use>
+</pkgmetadata>
