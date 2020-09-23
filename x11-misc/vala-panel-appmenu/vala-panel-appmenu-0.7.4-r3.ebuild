@@ -16,8 +16,8 @@ SRC_URI="${HOMEPAGE}/-/archive/${PV}/vala-panel-appmenu-${PV}.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="xfce mate +wnck jayatana"
-REQUIRED_USE="|| ( xfce mate )"
+IUSE="xfce mate +wnck jayatana vala-panel"
+REQUIRED_USE="|| ( vala-panel xfce mate )"
 
 DEPEND="
 	$(vala_depend)
@@ -30,10 +30,12 @@ RDEPEND="
 	x11-libs/gdk-pixbuf
 	>=x11-libs/bamf-0.5.0
 	wnck? ( >=x11-libs/libwnck-3.4.7 )
+	vala-panel? ( x11-libs/vala-panel )
 	xfce? ( >=xfce-base/xfce4-panel-4.11.2 )
 	mate? ( >=mate-base/mate-panel-1.20.0 )
 "
 
+#
 src_prepare(){
 	default
 	vala_src_prepare
