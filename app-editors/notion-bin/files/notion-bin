@@ -1,6 +1,8 @@
 #!/bin/bash
-if [ command -v electron-6 ]; then
-	electron-6 /opt/notion-app/app.asar
-else if [ command -v electron ]; then
-	electron /opt/notion-app/app.asar
+pushd /opt/notion-bin
+if [ $(command -v electron-6) ]; then
+	electron-6 app.asar
+elif [ $(command -v electron) ]; then
+	electron app.asar
 fi 
+popd

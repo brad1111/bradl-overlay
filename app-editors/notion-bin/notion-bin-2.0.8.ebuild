@@ -26,13 +26,11 @@ S="${WORKDIR}/Notion Installer/Notion.app/Contents/Resources"
 
 src_unpack(){
 	src=${DISTDIR}/${A}
-	echo ${src}
-	ls ${src}
 	7z x ${src}
 }
 
 src_configure(){
-	cp "${FILESDIR}/*" .
+	cp ${FILESDIR}/* .
 	icns2png -x Notion.icns
 }
 
