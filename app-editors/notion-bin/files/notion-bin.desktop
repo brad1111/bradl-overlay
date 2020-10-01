@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=/opt/notion-bin/notion-bin
+Icon=Notion_512x512x32
+Terminal=false
+Type=Application
+Name=Notion
+Comment=The all-in-one workspace for your notes and tasks
+Categories=Office;Utility;
+StartupNotify=true
+StartupWMClass=Notion
