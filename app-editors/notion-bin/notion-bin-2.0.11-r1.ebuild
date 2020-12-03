@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}
 BDEPEND="
 		app-arch/p7zip
 		media-libs/libicns
+		net-libs/nodejs
 		"
 RESTRICT="mirror bindist"
 S="${WORKDIR}/Notion Installer/Notion.app/Contents/Resources"
@@ -38,6 +39,7 @@ src_compile(){
 	cd app
 	rm node_modules/notion-intl
 	cp shared/notion-intl/ node_modules/ -r
+	npm rebuild
 }
 
 src_install(){
