@@ -34,12 +34,19 @@ src_configure(){
 	icns2png -x electron.icns
 }
 
+src_compile(){
+	cd app
+	rm node_modules/notion-intl
+	cp shared/notion-intl/ node_modules/ -r
+}
+
 src_install(){
 	mv "electron_512x512x32.png" "notion-bin.png"
 	doicon "notion-bin.png"
 	domenu notion-bin.desktop
 
 	insinto /opt/${PN}
-	doins app notion-bin
+	doins notion-bin
+	doins -r app/*
 	fperms +x /opt/${PN}/notion-bin
 }

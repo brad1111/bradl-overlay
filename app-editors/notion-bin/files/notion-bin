@@ -1,4 +1,8 @@
 #!/bin/bash
 pushd /opt/notion-bin
-electron app
+if [ $(command -v electron-11) ]; then
+	electron-11 . 
+elif [ $(command -v electron) ]; then
+	electron . 
+fi 
 popd
