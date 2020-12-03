@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		~virtual/electron-6.1.12"
+		~virtual/electron-11.0.3"
 BDEPEND="
 		app-arch/p7zip
 		media-libs/libicns
@@ -31,14 +31,15 @@ src_unpack(){
 
 src_configure(){
 	cp ${FILESDIR}/* .
-	icns2png -x Notion.icns
+	icns2png -x electron.icns
 }
 
 src_install(){
-	doicon Notion_512x512x32.png
+	mv "electron_512x512x32.png" "notion-bin.png"
+	doicon "notion-bin.png"
 	domenu notion-bin.desktop
 
 	insinto /opt/${PN}
-	doins app.asar notion-bin
+	doins app notion-bin
 	fperms +x /opt/${PN}/notion-bin
 }

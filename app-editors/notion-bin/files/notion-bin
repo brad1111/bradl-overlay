@@ -1,8 +1,4 @@
 #!/bin/bash
 pushd /opt/notion-bin
-if [ $(command -v electron-6) ]; then
-	electron-6 app.asar
-elif [ $(command -v electron) ]; then
-	electron app.asar
-fi 
+electron app
 popd
