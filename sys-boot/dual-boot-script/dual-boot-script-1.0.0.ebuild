@@ -18,7 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 #DEPEND=""
 RDEPEND="${PYTHON_DEPS}
-         sys-fs/e2fsprogs
+sys-fs/e2fsprogs
 "
 BDEPEND=""
 
