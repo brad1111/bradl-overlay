@@ -12,4 +12,4 @@ SLOT="11"
 KEYWORDS="~amd64"
 
 BDEPEND=""
-RDEPEND="|| ( ~dev-util/electron-${PV} ~dev-util/electron-bin-${PV} )"
+RDEPEND="|| ( ~dev-util/electron-${PV}:${SLOT} ~dev-util/electron-bin-${PV}:${SLOT} )"

@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		~virtual/electron:11"
+		>=virtual/electron-11.0.0:11"
 BDEPEND="
 		app-arch/p7zip
 		media-libs/libicns
