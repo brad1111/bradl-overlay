@@ -8,7 +8,7 @@ inherit multilib-build
 DESCRIPTION="Virtual for electron"
 
 LICENSE=""
-SLOT="6"
+SLOT="11"
 KEYWORDS="~amd64"
 
 BDEPEND=""
