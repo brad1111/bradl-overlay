@@ -2,12 +2,12 @@
   <repo priority="50" quality="experimental">
     <name>bradl-overlay</name>
     <description>Bradleys overlay</description>
-    <homepage>https://github.com/thebradad1111/bradl-overlay</homepage>
+    <homepage>https://github.com/brad1111/bradl-overlay</homepage>
     <owner>
       <email>N/A</email>
       <name>Bradley Eaton</name>
     </owner>
-    <source type="git">https://github.com/thebradad1111/bradl-overlay</source>
-    <feed>https://github.com/thebradad1111/bradl-overlay/commits/master.atom</feed>
+    <source type="git">https://github.com/brad1111/bradl-overlay</source>
+    <feed>https://github.com/brad1111/bradl-overlay/commits/master.atom</feed>
   </repo>
 </repositories>
