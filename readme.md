@@ -4,12 +4,12 @@ My personal overlay
 ### Using `eselect repository`
 Ensure you have [app-eselect/eselect-repository](https://wiki.gentoo.org/wiki/Eselect/Repository) installed and setup then as root run the following: 
 ```
-eselect repository add bradl-overlay git https://www.github.com/thebradad1111/bradl-overlay.git
+eselect repository add bradl-overlay git https://www.github.com/brad1111/bradl-overlay.git
 emerge --sync bradl-overlay
 ```
 ### Using `layman`
 Ensure you have [app-portage/layman](https://wiki.gentoo.org/wiki/Layman) installed and setup then as root run the following:
 ```
-layman -o https://raw.github.com/thebradad1111/bradl-overlay/master/repositories.xml -f -a bradl-overlay
+layman -o https://raw.github.com/brad1111/bradl-overlay/master/repositories.xml -f -a bradl-overlay
 layman -s bradl-overlay
 ```
