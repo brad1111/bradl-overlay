@@ -1,0 +1,20 @@
+diff --git a/main/createWindow.js b/main/createWindow.js
+index bf7e421..6976e4a 100644
+--- a/main/createWindow.js
++++ b/main/createWindow.js
+@@ -78,7 +78,7 @@ function createWindow(relativeUrl = "", args) {
+     }
+     window.on("close", () => {
+         windowState.saveState(window);
+-        if (process.platform === "win32") {
++        if (process.platform !== "darwin") {
+             const currentWindows = electron_1.BrowserWindow.getAllWindows();
+             const hasNoOtherOpenWindows = currentWindows.every(currentWindow => Boolean(currentWindow.id === window.id ||
+                 (warmWindowState.warmedWindow &&
+@@ -138,4 +138,4 @@ function getNextWindow(windowCreationArgs) {
+         return { window: new electron_1.BrowserWindow(windowCreationArgs), warmed: false };
+     }
+ }
+-//# sourceMappingURL=createWindow.js.map
+\ No newline at end of file
++//# sourceMappingURL=createWindow.js.map

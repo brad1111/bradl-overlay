@@ -23,6 +23,9 @@ BDEPEND="
 		media-gfx/imagemagick
 		"
 RESTRICT="mirror bindist"
+PATCHES=(
+	"${FILESDIR}"/${P}-closing-bug.patch
+)
 tmp2="${WORKDIR}/tmp2"
 S="${tmp2}/resources/app"
 
