@@ -9,7 +9,7 @@ import sys
 # EFIVAR_PREFIX = '/sys/firmware/efi/efivars'
 # 
 # PREFIX = b'\x07\x00\x00\x00'
- SUFFIX = b'\x20\x00\x00\x00'
+SUFFIX = b'\x20\x00\x00\x00'
 # 
 text = "Microsoft" 
 # filename = '{}/{}-{}'.format(EFIVAR_PREFIX, EFIVAR_NAME, EFIVAR_GUID)
