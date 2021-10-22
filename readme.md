@@ -1,5 +1,7 @@
 # bradl-overlay
-My personal overlay
+This overlay has been archived, please do not use it at the packages are likely to be outdated.
+I am currently running OpenSUSE and have a repo at https://build.opensuse.org/project/show/home:brad1111
+
 ## Adding the overlay
 ### Using `eselect repository`
 Ensure you have [app-eselect/eselect-repository](https://wiki.gentoo.org/wiki/Eselect/Repository) installed and setup then as root run the following: 
