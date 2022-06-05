@@ -1,6 +1,6 @@
 # bradl-overlay
 This overlay has been archived, please do not use it at the packages are likely to be outdated.
-I am currently running OpenSUSE and have a repo at https://build.opensuse.org/project/show/home:brad1111
+This project has moved to my gitlab.
 
 ## Adding the overlay
 ### Using `eselect repository`
